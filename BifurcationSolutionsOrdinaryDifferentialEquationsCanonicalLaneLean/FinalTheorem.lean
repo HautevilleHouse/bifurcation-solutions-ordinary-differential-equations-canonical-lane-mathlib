@@ -1,0 +1,17 @@
+import canonicalLaneMathlib.AdmissibleClass
+import HautevilleHouse.BifurcationSolutionsOrdinaryDifferentialEquationsCanonicalLaneLean.AdmissibleClass
+import HautevilleHouse.BifurcationSolutionsOrdinaryDifferentialEquationsCanonicalLaneLean.BridgeLemmas
+import HautevilleHouse.BifurcationSolutionsOrdinaryDifferentialEquationsCanonicalLaneLean.GateLemmas
+
+namespace HautevilleHouse
+namespace BifurcationSolutionsOrdinaryDifferentialEquationsCanonicalLaneLean
+
+def ConstrainedBifurcationClosure (A : AdmissibleClass) : Prop :=
+  bridgeClosed A ∧ gateClosed A
+
+theorem constrained_bifurcation_endgame (A : AdmissibleClass) :
+    ConstrainedBifurcationClosure A :=
+  And.intro (bridge_from_admissible_class A) (gate_from_admissible_class A)
+
+end BifurcationSolutionsOrdinaryDifferentialEquationsCanonicalLaneLean
+end HautevilleHouse
